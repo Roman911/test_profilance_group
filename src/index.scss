@@ -1,0 +1,253 @@
+$header: #696969;
+$modalBg: #1c1c1c;
+$btn: #ff4800;
+$borderInput: #ddd;
+$shadow: #d6d6d6;
+$error: #f2564d;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,900&display=swap');
+
+* {
+  outline: none;
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+input, textarea {
+  border: none;
+  font-size: 1.1rem;
+  padding: 5px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.4rem;
+  box-shadow: 0 0 0 1000px #fff inset!important;
+  width: 100%;
+}
+
+label input {
+  display: none;
+}
+label {
+  color: $header;
+  font-weight: 500;
+}
+
+.wrapper {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+//NavBar
+.navBar {
+  background: $header;
+  padding: 10px 0;
+  a {
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 800;
+    transition: 200ms;
+    &:hover {
+      color: #ff4800;
+    }
+  }
+}
+
+//News
+.news {
+  &__button {
+    text-align: end;
+    padding: 10px;
+  }
+}
+
+//Post
+.post {
+  box-shadow: 0 0 5px 1px $shadow;
+  border: 1px solid $borderInput;
+  margin: 10px;
+  padding: 10px;
+  &__header {
+    @media (max-width: 730px) {
+      flex-direction: column;
+      align-items: flex-start;
+      h4 {
+        margin: 10px 0 0;
+      }
+    }
+  }
+  &__buttons {
+    text-align: end;
+    button {
+      margin-left: 20px;
+    }
+  }
+}
+
+//Modal
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  &__background {
+    width: 100%;
+    height: 100%;
+    background: $modalBg;
+    opacity: 0.8;
+  }
+  &__close {
+    position: absolute;
+    top: 80px;
+    right: 100px;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  &__window {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 35px 40px;
+    background: white;
+    z-index: 10;
+  }
+}
+
+//Create Post
+.create-post {
+  box-shadow: 0 0 5px 1px $shadow;
+  border: 1px solid $borderInput;
+  margin: 10px;
+  padding: 10px;
+  &__button {
+    text-align: end;
+  }
+}
+
+//Button
+.btn {
+  box-shadow: 0 5px 12px rgba(0,0,0,.1);
+  border: none;
+  padding: 8px 16px;
+  background: $btn;
+  color: #fff;
+  text-transform: uppercase;
+  transition: 200ms;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 5px 16px rgba(0,0,0,.16);
+  }
+}
+
+.auth {
+  &__button {
+    text-align: end;
+  }
+  &__loginError {
+    font-size: 11px;
+    color: $error;
+  }
+}
+
+.input {
+  position: relative;
+  margin: 20px 0 30px;
+  border-bottom: 1px solid $borderInput;
+  &__label {
+    position: absolute;
+    padding-left: 7px;
+    transform: translateY(7px);
+    transition: transform .4s cubic-bezier(.25,.8,.25,1);
+    cursor: text;
+    opacity: 0.7;
+    &-touched {
+      opacity: 1;
+      transform: translate3d(-23px,-23px,0) scale(.67);
+    }
+    &-textarea {
+      padding: 10px 14px;
+    }
+  }
+  &__error {
+    position: absolute;
+    right: 10px;
+    font-size: 24px;
+    color: $error;
+    border: 1px solid $error;
+    padding: 0 12px;
+    border-radius: 50%;
+  }
+  &__textarea {
+    padding: 10px 15px;
+    font-weight: 600;
+    width: 100%;
+  }
+}
+
+//TextError
+.text-error {
+  box-shadow: 3px 0 20px $shadow;
+  width: 225px;
+  position: absolute;
+  padding: 8px 16px;
+  background: white;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -240px;
+  &__triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -12px;
+    border-top: 10px solid transparent;
+    border-left: 12px solid white;
+    border-bottom: 10px solid transparent;
+  }
+}
+
+//Date
+.date {
+  font-size: 12px;
+}
+
+//Error
+.error {
+  color: $error;
+}
